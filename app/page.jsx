@@ -80,8 +80,18 @@ export default function Page() {
   const [largeText, setLargeText] = useState(true);
   const [activeTab, setActiveTab] = useState("dashboard");
 
-  const user = useMemo(() => sampleUsers[profile], [profile]);
-  const tone = toneFromScore(user.engagement);
+const user = useMemo(() => sampleUsers[profile], [profile]);
+const tone = toneFromScore(user.engagement);
+
+const insightMessage = useMemo(() => {
+  if (user.engagement < 60) {
+    return "Reduced engagement detected. The system is increasing guidance and simplifying interactions.";
+  }
+  if (user.communicationChange < -20) {
+    return "A drop in communication was detected. The system recommends stronger social prompts and support.";
+  }
+  return "Stable interaction pattern detected. The system is maintaining current adaptive settings.";
+}, [user]);
 
   const bg = highContrast ? "#000000" : "#f8fafc";
   const text = highContrast ? "#ffffff" : "#0f172a";
