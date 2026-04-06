@@ -74,6 +74,10 @@ function riskColor(level) {
   return "#b91c1c";
 }
 
+function capitalize(s) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
 function Card({ children, style }) {
   return (
     <div
@@ -96,7 +100,14 @@ function SectionHeader({ title, subtitle }) {
     <div style={{ marginBottom: 16 }}>
       <h2 style={{ margin: 0, fontSize: 26, lineHeight: 1.1 }}>{title}</h2>
       {subtitle ? (
-        <p style={{ margin: "8px 0 0", color: "#64748b", lineHeight: 1.6, fontSize: 15 }}>
+        <p
+          style={{
+            margin: "8px 0 0",
+            color: "#64748b",
+            lineHeight: 1.6,
+            fontSize: 15
+          }}
+        >
           {subtitle}
         </p>
       ) : null}
@@ -126,8 +137,26 @@ function StatCard({ label, value, helper, accent = "#0f172a" }) {
   return (
     <Card style={{ padding: 18 }}>
       <div style={{ fontSize: 14, color: "#64748b" }}>{label}</div>
-      <div style={{ fontSize: 34, fontWeight: 800, color: accent, marginTop: 8 }}>{value}</div>
-      <div style={{ fontSize: 14, color: "#64748b", marginTop: 8, lineHeight: 1.5 }}>{helper}</div>
+      <div
+        style={{
+          fontSize: 34,
+          fontWeight: 800,
+          color: accent,
+          marginTop: 8
+        }}
+      >
+        {value}
+      </div>
+      <div
+        style={{
+          fontSize: 14,
+          color: "#64748b",
+          marginTop: 8,
+          lineHeight: 1.5
+        }}
+      >
+        {helper}
+      </div>
     </Card>
   );
 }
@@ -184,7 +213,14 @@ function TrendChart({ title, values, color, max, labels }) {
         }}
       >
         {labels.map((label) => (
-          <div key={label} style={{ textAlign: "center", fontSize: 12, color: "#64748b" }}>
+          <div
+            key={label}
+            style={{
+              textAlign: "center",
+              fontSize: 12,
+              color: "#64748b"
+            }}
+          >
             {label}
           </div>
         ))}
@@ -201,7 +237,14 @@ function RouteSupportMap({ minutes, stress }) {
 
   return (
     <Card>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 10
+        }}
+      >
         <div style={{ fontWeight: 800, fontSize: 18 }}>Appointment Route Support</div>
         <MiniBadge bg={stressBg} color={stressColor}>
           {stress} route stress
@@ -209,7 +252,8 @@ function RouteSupportMap({ minutes, stress }) {
       </div>
 
       <div style={{ color: "#64748b", marginBottom: 12, lineHeight: 1.5 }}>
-        2:00 PM doctor appointment • estimated travel {minutes} min • simplified navigation mode activated
+        2:00 PM doctor appointment • estimated travel {minutes} min • simplified
+        navigation mode activated
       </div>
 
       <svg
@@ -241,23 +285,61 @@ function RouteSupportMap({ minutes, stress }) {
         <circle cx="58" cy="168" r="10" fill="#16a34a" />
         <circle cx="360" cy="64" r="10" fill="#dc2626" />
 
-        <rect x="38" y="138" width="80" height="30" rx="10" fill="#fff" stroke="#cbd5e1" />
+        <rect
+          x="38"
+          y="138"
+          width="80"
+          height="30"
+          rx="10"
+          fill="#fff"
+          stroke="#cbd5e1"
+        />
         <text x="78" y="158" textAnchor="middle" fontSize="12" fill="#334155">
           Home
         </text>
 
-        <rect x="316" y="28" width="88" height="30" rx="10" fill="#fff" stroke="#cbd5e1" />
+        <rect
+          x="316"
+          y="28"
+          width="88"
+          height="30"
+          rx="10"
+          fill="#fff"
+          stroke="#cbd5e1"
+        />
         <text x="360" y="48" textAnchor="middle" fontSize="12" fill="#334155">
           Clinic
         </text>
 
-        <rect x="274" y="94" width="110" height="36" rx="12" fill="#fff" stroke="#cbd5e1" />
-        <text x="329" y="116" textAnchor="middle" fontSize="13" fill="#334155" fontWeight="700">
+        <rect
+          x="274"
+          y="94"
+          width="110"
+          height="36"
+          rx="12"
+          fill="#fff"
+          stroke="#cbd5e1"
+        />
+        <text
+          x="329"
+          y="116"
+          textAnchor="middle"
+          fontSize="13"
+          fill="#334155"
+          fontWeight="700"
+        >
           Guided route active
         </text>
       </svg>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10, marginTop: 14 }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 10,
+          marginTop: 14
+        }}
+      >
         <div style={blueInfoCard}>
           <div style={blueInfoTitle}>Turn-by-turn mode</div>
           <div style={blueInfoText}>Reduces confusion during travel</div>
@@ -305,36 +387,79 @@ export default function Page() {
       }}
     >
       <div style={{ maxWidth: 1400, margin: "0 auto" }}>
-        {/* HERO */}
-        <div style={{ display: "grid", gridTemplateColumns: "1.65fr 1fr", gap: 20, marginBottom: 20 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.65fr 1fr",
+            gap: 20,
+            marginBottom: 20
+          }}
+        >
           <Card
             style={{
-              background: "linear-gradient(135deg, #ffffff 0%, #f8fbff 55%, #eef4ff 100%)",
+              background:
+                "linear-gradient(135deg, #ffffff 0%, #f8fbff 55%, #eef4ff 100%)",
               border: "1px solid #dbeafe",
               padding: 28
             }}
           >
-            <div style={{ fontSize: 13, letterSpacing: 1.4, color: "#64748b", fontWeight: 800, textTransform: "uppercase" }}>
+            <div
+              style={{
+                fontSize: 13,
+                letterSpacing: 1.4,
+                color: "#64748b",
+                fontWeight: 800,
+                textTransform: "uppercase"
+              }}
+            >
               Integrated Cognitive Support Software
             </div>
 
-            <h1 style={{ marginTop: 14, marginBottom: 14, fontSize: 48, lineHeight: 1.04, maxWidth: 840 }}>
-              A software-based system for supporting cognitive aging through adaptive digital interaction
+            <h1
+              style={{
+                marginTop: 14,
+                marginBottom: 14,
+                fontSize: 48,
+                lineHeight: 1.04,
+                maxWidth: 840
+              }}
+            >
+              A software-based system for supporting cognitive aging through
+              adaptive digital interaction
             </h1>
 
-            <p style={{ color: "#64748b", fontSize: 19, lineHeight: 1.75, maxWidth: 850, marginBottom: 22 }}>
-              This prototype presents the concept as a software layer built into everyday smartphones or tablets.
-              It observes routine digital behaviors such as reminders, communication, and navigation, then adapts the interface
-              to support memory, independence, and daily functioning in older adults.
+            <p
+              style={{
+                color: "#64748b",
+                fontSize: 19,
+                lineHeight: 1.75,
+                maxWidth: 850,
+                marginBottom: 22
+              }}
+            >
+              This prototype presents the concept as a software layer built into
+              everyday smartphones or tablets. It observes routine digital
+              behaviors such as reminders, communication, and navigation, then
+              adapts the interface to support memory, independence, and daily
+              functioning in older adults.
             </p>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(140px, 1fr))", gap: 12, marginBottom: 22 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, minmax(140px, 1fr))",
+                gap: 12,
+                marginBottom: 22
+              }}
+            >
               <div style={heroStatBox}>
                 <div style={heroStatNumber}>{user.engagement}%</div>
                 <div style={heroStatLabel}>Engagement</div>
               </div>
               <div style={heroStatBox}>
-                <div style={heroStatNumber}>{Math.abs(user.communicationChange)}%</div>
+                <div style={heroStatNumber}>
+                  {Math.abs(user.communicationChange)}%
+                </div>
                 <div style={heroStatLabel}>Communication Shift</div>
               </div>
               <div style={heroStatBox}>
@@ -348,13 +473,22 @@ export default function Page() {
             </div>
 
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-              <button onClick={() => setProfile("mild")} style={profileButton(profile === "mild")}>
+              <button
+                onClick={() => setProfile("mild")}
+                style={profileButton(profile === "mild")}
+              >
                 Age 74
               </button>
-              <button onClick={() => setProfile("moderate")} style={profileButton(profile === "moderate")}>
+              <button
+                onClick={() => setProfile("moderate")}
+                style={profileButton(profile === "moderate")}
+              >
                 Age 81
               </button>
-              <button onClick={() => setProfile("strong")} style={profileButton(profile === "strong")}>
+              <button
+                onClick={() => setProfile("strong")}
+                style={profileButton(profile === "strong")}
+              >
                 Age 69
               </button>
 
@@ -370,24 +504,61 @@ export default function Page() {
             </div>
           </Card>
 
-          {/* SYSTEM SUMMARY */}
-          <Card style={{ background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 10 }}>
+          <Card
+            style={{
+              background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)"
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                gap: 10
+              }}
+            >
               <div>
-                <div style={{ fontWeight: 800, fontSize: 22, marginBottom: 8 }}>System Summary</div>
-                <div style={{ color: "#64748b", fontSize: 16 }}>{user.name}, age {user.age}</div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: 22,
+                    marginBottom: 8
+                  }}
+                >
+                  System Summary
+                </div>
+                <div style={{ color: "#64748b", fontSize: 16 }}>
+                  {user.name}, age {user.age}
+                </div>
               </div>
               <MiniBadge>{tone} engagement</MiniBadge>
             </div>
 
-            <div style={{ marginTop: 16, marginBottom: 8, fontWeight: 700 }}>Engagement score: {user.engagement}%</div>
+            <div
+              style={{
+                marginTop: 16,
+                marginBottom: 8,
+                fontWeight: 700
+              }}
+            >
+              Engagement score: {user.engagement}%
+            </div>
 
-            <div style={{ height: 14, background: "#e2e8f0", borderRadius: 999, overflow: "hidden", marginBottom: 14 }}>
+            <div
+              style={{
+                height: 14,
+                background: "#e2e8f0",
+                borderRadius: 999,
+                overflow: "hidden",
+                marginBottom: 14
+              }}
+            >
               <div
                 style={{
                   width: `${user.engagement}%`,
                   height: "100%",
-                  background: "linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)"
+                  background:
+                    "linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)"
                 }}
               />
             </div>
@@ -401,29 +572,51 @@ export default function Page() {
                 marginBottom: 14
               }}
             >
-              <div style={{ fontWeight: 800, color: "#9a3412", marginBottom: 6 }}>Live system interpretation</div>
-              <div style={{ color: "#7c2d12", lineHeight: 1.55 }}>{systemInsight}</div>
+              <div
+                style={{
+                  fontWeight: 800,
+                  color: "#9a3412",
+                  marginBottom: 6
+                }}
+              >
+                Live system interpretation
+              </div>
+              <div style={{ color: "#7c2d12", lineHeight: 1.55 }}>
+                {systemInsight}
+              </div>
             </div>
 
             <div style={recommendationBox}>
-              <div style={{ fontWeight: 800, marginBottom: 6 }}>Current recommendation</div>
+              <div style={{ fontWeight: 800, marginBottom: 6 }}>
+                Current recommendation
+              </div>
               <div style={{ color: "#334155", lineHeight: 1.55 }}>
-                Activate <strong>{user.suggestedMode}</strong> support mode with guided prompts, reduced navigation depth,
-                stronger reminder reinforcement, and prioritized daily actions.
+                Activate <strong>{user.suggestedMode}</strong> support mode with
+                guided prompts, reduced navigation depth, stronger reminder
+                reinforcement, and prioritized daily actions.
               </div>
             </div>
 
             <div style={{ display: "grid", gap: 12, marginTop: 16 }}>
               <div style={summaryRow}>
                 <span>Risk level</span>
-                <span style={{ color: riskColor(user.riskLevel), fontWeight: 800 }}>{user.riskLevel}</span>
+                <span
+                  style={{
+                    color: riskColor(user.riskLevel),
+                    fontWeight: 800
+                  }}
+                >
+                  {user.riskLevel}
+                </span>
               </div>
               <div style={summaryRow}>
                 <span>Caregiver share option</span>
                 <input
                   type="checkbox"
                   checked={shareWithCaregiver}
-                  onChange={() => setShareWithCaregiver(!shareWithCaregiver)}
+                  onChange={() =>
+                    setShareWithCaregiver(!shareWithCaregiver)
+                  }
                 />
               </div>
               <div style={summaryRow}>
@@ -436,24 +629,40 @@ export default function Page() {
               </div>
               <div style={summaryRow}>
                 <span>Escalation status</span>
-                <span style={{ fontWeight: 700, color: "#475569" }}>{user.caregiverStatus}</span>
+                <span
+                  style={{
+                    fontWeight: 700,
+                    color: "#475569"
+                  }}
+                >
+                  {user.caregiverStatus}
+                </span>
               </div>
             </div>
           </Card>
         </div>
 
-        {/* WHY SYSTEM */}
         <Card style={{ marginBottom: 20 }}>
           <SectionHeader
             title="Why an integrated software system is needed"
             subtitle="This concept works best as built-in mobile support software because it can observe normal daily behavior continuously, instead of relying on users to remember to open a separate app."
           />
 
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.08fr 1.2fr 0.08fr 1.2fr 0.08fr 1.2fr", gap: 12, alignItems: "stretch" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1.2fr 0.08fr 1.2fr 0.08fr 1.2fr 0.08fr 1.2fr",
+              gap: 12,
+              alignItems: "stretch"
+            }}
+          >
             <div style={pipelineCard}>
               <div style={pipelineEmoji}>📱</div>
               <div style={pipelineTitle}>Daily Digital Behavior</div>
-              <div style={pipelineText}>Texts, reminders, route checks, missed tasks, communication frequency</div>
+              <div style={pipelineText}>
+                Texts, reminders, route checks, missed tasks, communication
+                frequency
+              </div>
             </div>
 
             <div style={pipelineArrow}>→</div>
@@ -461,7 +670,10 @@ export default function Page() {
             <div style={pipelineCard}>
               <div style={pipelineEmoji}>🧠</div>
               <div style={pipelineTitle}>Cognitive Signals</div>
-              <div style={pipelineText}>Memory strain, disengagement, isolation risk, navigation hesitation</div>
+              <div style={pipelineText}>
+                Memory strain, disengagement, isolation risk, navigation
+                hesitation
+              </div>
             </div>
 
             <div style={pipelineArrow}>→</div>
@@ -469,7 +681,10 @@ export default function Page() {
             <div style={pipelineCard}>
               <div style={pipelineEmoji}>⚙️</div>
               <div style={pipelineTitle}>Software Adaptation</div>
-              <div style={pipelineText}>Simplified layouts, guided routes, stronger prompts, prioritized actions</div>
+              <div style={pipelineText}>
+                Simplified layouts, guided routes, stronger prompts,
+                prioritized actions
+              </div>
             </div>
 
             <div style={pipelineArrow}>→</div>
@@ -477,12 +692,14 @@ export default function Page() {
             <div style={pipelineCard}>
               <div style={pipelineEmoji}>🌱</div>
               <div style={pipelineTitle}>Better Outcomes</div>
-              <div style={pipelineText}>Routine stability, reduced overload, stronger independence, safer functioning</div>
+              <div style={pipelineText}>
+                Routine stability, reduced overload, stronger independence,
+                safer functioning
+              </div>
             </div>
           </div>
         </Card>
 
-        {/* NAV */}
         <div
           style={{
             display: "flex",
@@ -496,20 +713,25 @@ export default function Page() {
             boxShadow: "0 8px 24px rgba(15, 23, 42, 0.04)"
           }}
         >
-          {["dashboard", "monitoring", "adaptive", "memory", "social"].map((tab) => (
-            <button key={tab} onClick={() => setActiveTab(tab)} style={tabButton(activeTab === tab)}>
-              {tab === "adaptive"
-                ? "Adaptive UI"
-                : tab === "memory"
-                ? "Memory Support"
-                : tab === "social"
-                ? "Social + Routine"
-                : capitalize(tab)}
-            </button>
-          ))}
+          {["dashboard", "monitoring", "adaptive", "memory", "social"].map(
+            (tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                style={tabButton(activeTab === tab)}
+              >
+                {tab === "adaptive"
+                  ? "Adaptive UI"
+                  : tab === "memory"
+                    ? "Memory Support"
+                    : tab === "social"
+                      ? "Social + Routine"
+                      : capitalize(tab)}
+              </button>
+            )
+          )}
         </div>
 
-        {/* DASHBOARD */}
         {activeTab === "dashboard" && (
           <>
             <SectionHeader
@@ -517,7 +739,13 @@ export default function Page() {
               subtitle="These signals illustrate why a generic phone interface may not be enough for aging users."
             />
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(200px, 1fr))", gap: 16 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, minmax(200px, 1fr))",
+                gap: 16
+              }}
+            >
               <StatCard
                 label="Cognitive Engagement"
                 value={`${user.engagement}%`}
@@ -528,7 +756,9 @@ export default function Page() {
                 label="Communication Change"
                 value={`${user.communicationChange}%`}
                 helper="Compared with the previous week"
-                accent={user.communicationChange < 0 ? "#dc2626" : "#16a34a"}
+                accent={
+                  user.communicationChange < 0 ? "#dc2626" : "#16a34a"
+                }
               />
               <StatCard
                 label="Tasks Completed"
@@ -540,12 +770,24 @@ export default function Page() {
                 label="Reminders Missed"
                 value={`${user.remindersMissed}`}
                 helper="Missed prompts activate stronger support"
-                accent={user.remindersMissed > 0 ? "#ea580c" : "#16a34a"}
+                accent={
+                  user.remindersMissed > 0 ? "#ea580c" : "#16a34a"
+                }
               />
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 18, marginTop: 18 }}>
-              <RouteSupportMap minutes={user.routeMinutes} stress={user.routeStress} />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1.05fr 0.95fr",
+                gap: 18,
+                marginTop: 18
+              }}
+            >
+              <RouteSupportMap
+                minutes={user.routeMinutes}
+                stress={user.routeStress}
+              />
 
               <Card>
                 <SectionHeader
@@ -557,32 +799,50 @@ export default function Page() {
                   <div style={timelineItem}>
                     <div style={dotOrange} />
                     <div>
-                      <div style={timelineTitle}>Medication reminder delayed</div>
-                      <div style={timelineText}>Late acknowledgement suggests rising memory load.</div>
+                      <div style={timelineTitle}>
+                        Medication reminder delayed
+                      </div>
+                      <div style={timelineText}>
+                        Late acknowledgement suggests rising memory load.
+                      </div>
                     </div>
                   </div>
 
                   <div style={timelineItem}>
                     <div style={dotBlue} />
                     <div>
-                      <div style={timelineTitle}>Communication activity changed</div>
-                      <div style={timelineText}>Lower contact may indicate isolation or disengagement.</div>
+                      <div style={timelineTitle}>
+                        Communication activity changed
+                      </div>
+                      <div style={timelineText}>
+                        Lower contact may indicate isolation or disengagement.
+                      </div>
                     </div>
                   </div>
 
                   <div style={timelineItem}>
                     <div style={dotRed} />
                     <div>
-                      <div style={timelineTitle}>Navigation hesitation detected</div>
-                      <div style={timelineText}>Appointment route support is strengthened automatically.</div>
+                      <div style={timelineTitle}>
+                        Navigation hesitation detected
+                      </div>
+                      <div style={timelineText}>
+                        Appointment route support is strengthened
+                        automatically.
+                      </div>
                     </div>
                   </div>
 
                   <div style={timelineItem}>
                     <div style={dotGreen} />
                     <div>
-                      <div style={timelineTitle}>Adaptive support applied</div>
-                      <div style={timelineText}>Large actions, prompts, and route assistance reduce overload.</div>
+                      <div style={timelineTitle}>
+                        Adaptive support applied
+                      </div>
+                      <div style={timelineText}>
+                        Large actions, prompts, and route assistance reduce
+                        overload.
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -591,7 +851,6 @@ export default function Page() {
           </>
         )}
 
-        {/* MONITORING */}
         {activeTab === "monitoring" && (
           <>
             <SectionHeader
@@ -599,7 +858,13 @@ export default function Page() {
               subtitle="Showing change over time makes the prototype feel like research software, not just a one-screen mockup."
             />
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: 16
+              }}
+            >
               <TrendChart
                 title="Engagement trend"
                 values={user.weeklyEngagement}
@@ -623,15 +888,31 @@ export default function Page() {
               />
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 18 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 16,
+                marginTop: 18
+              }}
+            >
               <Card>
                 <SectionHeader
                   title="Behavioral indicators used by the software"
                   subtitle="These are meaningful because they reflect real-world independence, not just abstract scores."
                 />
-                <ul style={{ color: "#475569", lineHeight: 1.9, margin: 0, paddingLeft: 20 }}>
+                <ul
+                  style={{
+                    color: "#475569",
+                    lineHeight: 1.9,
+                    margin: 0,
+                    paddingLeft: 20
+                  }}
+                >
                   <li>Communication frequency and routine interaction</li>
-                  <li>Navigation hesitation and repeated route checking</li>
+                  <li>
+                    Navigation hesitation and repeated route checking
+                  </li>
                   <li>Reminder acknowledgement timing</li>
                   <li>Task completion consistency</li>
                   <li>Pattern stability across the week</li>
@@ -646,15 +927,23 @@ export default function Page() {
                 <div style={{ display: "grid", gap: 12 }}>
                   <div style={reasonBox}>
                     <strong>Missed reminders</strong>
-                    <div style={reasonText}>Can affect medication adherence and routine stability.</div>
+                    <div style={reasonText}>
+                      Can affect medication adherence and routine stability.
+                    </div>
                   </div>
                   <div style={reasonBox}>
                     <strong>Navigation problems</strong>
-                    <div style={reasonText}>Can threaten independence and increase appointment stress.</div>
+                    <div style={reasonText}>
+                      Can threaten independence and increase appointment
+                      stress.
+                    </div>
                   </div>
                   <div style={reasonBox}>
                     <strong>Communication decline</strong>
-                    <div style={reasonText}>May signal isolation, disengagement, or need for stronger support.</div>
+                    <div style={reasonText}>
+                      May signal isolation, disengagement, or need for
+                      stronger support.
+                    </div>
                   </div>
                 </div>
               </Card>
@@ -662,7 +951,6 @@ export default function Page() {
           </>
         )}
 
-        {/* ADAPTIVE */}
         {activeTab === "adaptive" && (
           <>
             <SectionHeader
@@ -670,17 +958,49 @@ export default function Page() {
               subtitle="This is the clearest visual explanation of the system’s purpose: it changes how the phone behaves when cognitive strain increases."
             />
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
-              <Card style={{ border: "1px solid #fecaca", background: "#fffafa" }}>
-                <div style={{ color: "#dc2626", fontWeight: 800, marginBottom: 10, fontSize: 22 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 18
+              }}
+            >
+              <Card
+                style={{
+                  border: "1px solid #fecaca",
+                  background: "#fffafa"
+                }}
+              >
+                <div
+                  style={{
+                    color: "#dc2626",
+                    fontWeight: 800,
+                    marginBottom: 10,
+                    fontSize: 22
+                  }}
+                >
                   Before: Standard Phone Interface
                 </div>
-                <div style={{ color: "#64748b", marginBottom: 16, lineHeight: 1.6 }}>
-                  A generic interface with more competing options, smaller targets, and a higher decision burden.
+                <div
+                  style={{
+                    color: "#64748b",
+                    marginBottom: 16,
+                    lineHeight: 1.6
+                  }}
+                >
+                  A generic interface with more competing options, smaller
+                  targets, and a higher decision burden.
                 </div>
 
                 <div style={miniGrid}>
-                  {["Messages", "Calendar", "Health", "Banking", "Maps", "Photos"].map((item) => (
+                  {[
+                    "Messages",
+                    "Calendar",
+                    "Health",
+                    "Banking",
+                    "Maps",
+                    "Photos"
+                  ].map((item) => (
                     <div key={item} style={miniTile}>
                       {item}
                     </div>
@@ -688,25 +1008,54 @@ export default function Page() {
                 </div>
 
                 <div style={dangerPanel}>
-                  Increased decision load may elevate confusion, delay action, and reduce successful task completion.
+                  Increased decision load may elevate confusion, delay
+                  action, and reduce successful task completion.
                 </div>
               </Card>
 
-              <Card style={{ border: "2px solid #2563eb", background: "#f8fbff" }}>
-                <div style={{ color: "#2563eb", fontWeight: 800, marginBottom: 10, fontSize: 22 }}>
+              <Card
+                style={{
+                  border: "2px solid #2563eb",
+                  background: "#f8fbff"
+                }}
+              >
+                <div
+                  style={{
+                    color: "#2563eb",
+                    fontWeight: 800,
+                    marginBottom: 10,
+                    fontSize: 22
+                  }}
+                >
                   After: Integrated Adaptive Support
                 </div>
-                <div style={{ color: "#64748b", marginBottom: 16, lineHeight: 1.6 }}>
-                  The software layer prioritizes high-value actions, enlarges controls, simplifies navigation, and reinforces routines.
+                <div
+                  style={{
+                    color: "#64748b",
+                    marginBottom: 16,
+                    lineHeight: 1.6
+                  }}
+                >
+                  The software layer prioritizes high-value actions, enlarges
+                  controls, simplifies navigation, and reinforces routines.
                 </div>
 
                 <div style={{ display: "grid", gap: 12 }}>
                   <button style={primaryAction}>Call Family</button>
                   <button style={secondaryAction}>Today’s Reminders</button>
-                  <button style={outlineAction}>Doctor Route Support</button>
+                  <button style={outlineAction}>
+                    Doctor Route Support
+                  </button>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10, marginTop: 18 }}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                    gap: 10,
+                    marginTop: 18
+                  }}
+                >
                   <div style={blueInfoCard}>
                     <div style={blueInfoTitle}>Larger controls</div>
                     <div style={blueInfoText}>Improves accessibility</div>
@@ -725,7 +1074,6 @@ export default function Page() {
           </>
         )}
 
-        {/* MEMORY */}
         {activeTab === "memory" && (
           <>
             <SectionHeader
@@ -733,31 +1081,58 @@ export default function Page() {
               subtitle="These features show how the software helps without fully replacing thinking."
             />
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 18
+              }}
+            >
               <Card>
-                <div style={{ fontWeight: 800, fontSize: 20, marginBottom: 10 }}>Smart reminders</div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: 20,
+                    marginBottom: 10
+                  }}
+                >
+                  Smart reminders
+                </div>
                 <div style={infoBox}>
                   <strong>8:00 AM Medication Reminder</strong>
                   <div style={{ color: "#64748b", marginTop: 6 }}>
-                    Status: {user.remindersMissed > 0 ? "Missed once — reinforcement active" : "Completed on time"}
+                    Status:{" "}
+                    {user.remindersMissed > 0
+                      ? "Missed once — reinforcement active"
+                      : "Completed on time"}
                   </div>
                 </div>
                 <div style={infoBox}>
                   <strong>2:00 PM Doctor Appointment</strong>
                   <div style={{ color: "#64748b", marginTop: 6 }}>
-                    Travel time and simplified route prompts are added automatically.
+                    Travel time and simplified route prompts are added
+                    automatically.
                   </div>
                 </div>
                 <div style={infoBox}>
                   <strong>Why this helps</strong>
                   <div style={{ color: "#64748b", marginTop: 6 }}>
-                    The system intensifies support only when behavior suggests rising memory load.
+                    The system intensifies support only when behavior suggests
+                    rising memory load.
                   </div>
                 </div>
               </Card>
 
               <Card>
-                <div style={{ fontWeight: 800, fontSize: 20, marginBottom: 10 }}>Cognitive reinforcement</div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: 20,
+                    marginBottom: 10
+                  }}
+                >
+                  Cognitive reinforcement
+                </div>
                 <div style={infoBox}>
                   <strong>Recall prompt</strong>
                   <div style={{ color: "#64748b", marginTop: 6 }}>
@@ -767,13 +1142,15 @@ export default function Page() {
                 <div style={infoBox}>
                   <strong>Supportive cue</strong>
                   <div style={{ color: "#64748b", marginTop: 6 }}>
-                    You acknowledged medication and checked your clinic route before leaving.
+                    You acknowledged medication and checked your clinic route
+                    before leaving.
                   </div>
                 </div>
                 <div style={infoBox}>
                   <strong>Research importance</strong>
                   <div style={{ color: "#64748b", marginTop: 6 }}>
-                    The goal is support that still preserves meaningful cognitive engagement rather than total automation.
+                    The goal is support that still preserves meaningful
+                    cognitive engagement rather than total automation.
                   </div>
                 </div>
               </Card>
@@ -781,7 +1158,6 @@ export default function Page() {
           </>
         )}
 
-        {/* SOCIAL */}
         {activeTab === "social" && (
           <>
             <SectionHeader
@@ -789,13 +1165,28 @@ export default function Page() {
               subtitle="This shows why the system matters beyond usability: it supports belonging, communication, and everyday functioning."
             />
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 18
+              }}
+            >
               <Card>
-                <div style={{ fontWeight: 800, fontSize: 20, marginBottom: 10 }}>Connection support</div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: 20,
+                    marginBottom: 10
+                  }}
+                >
+                  Connection support
+                </div>
                 <div style={infoBox}>
                   <strong>You have not contacted anyone today.</strong>
                   <div style={{ color: "#64748b", marginTop: 6 }}>
-                    Would you like to call your daughter or send a quick message?
+                    Would you like to call your daughter or send a quick
+                    message?
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 10, marginTop: 14 }}>
@@ -805,23 +1196,41 @@ export default function Page() {
               </Card>
 
               <Card>
-                <div style={{ fontWeight: 800, fontSize: 20, marginBottom: 10 }}>Expected impact</div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: 20,
+                    marginBottom: 10
+                  }}
+                >
+                  Expected impact
+                </div>
                 <div style={{ display: "grid", gap: 12 }}>
                   <div style={impactRow}>
                     <span>🧠</span>
-                    <span>Supports cognition through routine reinforcement</span>
+                    <span>
+                      Supports cognition through routine reinforcement
+                    </span>
                   </div>
                   <div style={impactRow}>
                     <span>👥</span>
-                    <span>Reduces isolation risk through communication prompts</span>
+                    <span>
+                      Reduces isolation risk through communication prompts
+                    </span>
                   </div>
                   <div style={impactRow}>
                     <span>📍</span>
-                    <span>Supports independence during appointments and navigation</span>
+                    <span>
+                      Supports independence during appointments and
+                      navigation
+                    </span>
                   </div>
                   <div style={impactRow}>
                     <span>⚙️</span>
-                    <span>Shows how CS and gerontology can work together in one system</span>
+                    <span>
+                      Shows how CS and gerontology can work together in one
+                      system
+                    </span>
                   </div>
                 </div>
               </Card>
@@ -829,35 +1238,81 @@ export default function Page() {
           </>
         )}
 
-        {/* FOOTER */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, marginTop: 22 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 18,
+            marginTop: 22
+          }}
+        >
           <Card>
-            <div style={{ fontWeight: 800, fontSize: 22, marginBottom: 10 }}>Prototype rationale</div>
-            <p style={{ color: "#64748b", lineHeight: 1.75, fontSize: 16, margin: 0 }}>
-              This prototype presents the concept as integrated mobile support software rather than just a separate app.
-              That framing better fits the research question, because the system works by observing normal daily interaction patterns
-              and adapting support in the background.
+            <div
+              style={{
+                fontWeight: 800,
+                fontSize: 22,
+                marginBottom: 10
+              }}
+            >
+              Prototype rationale
+            </div>
+            <p
+              style={{
+                color: "#64748b",
+                lineHeight: 1.75,
+                fontSize: 16,
+                margin: 0
+              }}
+            >
+              This prototype presents the concept as integrated mobile support
+              software rather than just a separate app. That framing better fits
+              the research question, because the system works by observing normal
+              daily interaction patterns and adapting support in the background.
             </p>
           </Card>
 
-          <Card style={{ background: "linear-gradient(180deg, #eff6ff 0%, #ffffff 100%)", border: "1px solid #bfdbfe" }}>
-            <div style={{ fontWeight: 800, fontSize: 22, marginBottom: 10 }}>Why this strengthens your research demo</div>
+          <Card
+            style={{
+              background: "linear-gradient(180deg, #eff6ff 0%, #ffffff 100%)",
+              border: "1px solid #bfdbfe"
+            }}
+          >
+            <div
+              style={{
+                fontWeight: 800,
+                fontSize: 22,
+                marginBottom: 10
+              }}
+            >
+              Why this strengthens your research demo
+            </div>
             <div style={{ display: "grid", gap: 12 }}>
               <div style={impactRow}>
                 <span>📊</span>
-                <span>Shows behavioral change over time, not just static screens</span>
+                <span>
+                  Shows behavioral change over time, not just static screens
+                </span>
               </div>
               <div style={impactRow}>
                 <span>🗺️</span>
-                <span>Connects cognition to real-life navigation and appointments</span>
+                <span>
+                  Connects cognition to real-life navigation and
+                  appointments
+                </span>
               </div>
               <div style={impactRow}>
                 <span>🔔</span>
-                <span>Makes reminders, routines, and communication visibly meaningful</span>
+                <span>
+                  Makes reminders, routines, and communication visibly
+                  meaningful
+                </span>
               </div>
               <div style={impactRow}>
                 <span>🎓</span>
-                <span>Looks like a true research software prototype instead of a generic app</span>
+                <span>
+                  Looks like a true research software prototype instead of a
+                  generic app
+                </span>
               </div>
             </div>
           </Card>
@@ -865,10 +1320,6 @@ export default function Page() {
       </div>
     </div>
   );
-}
-
-function capitalize(s) {
-  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 function profileButton(active) {
@@ -1138,4 +1589,24 @@ const impactRow = {
   color: "#334155",
   lineHeight: 1.6,
   fontSize: 16
+};
+
+const mapInfoCard = {
+  background: "#eff6ff",
+  border: "1px solid #bfdbfe",
+  borderRadius: 14,
+  padding: 12
+};
+
+const mapInfoTitle = {
+  fontWeight: 700,
+  fontSize: 14,
+  marginBottom: 4,
+  color: "#1d4ed8"
+};
+
+const mapInfoText = {
+  fontSize: 13,
+  color: "#475569",
+  lineHeight: 1.4
 };
